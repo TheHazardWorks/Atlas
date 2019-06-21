@@ -8,7 +8,7 @@
 
 ## Why Atlas?
 Atlas is an ongoing way to simplify and expand the default Map variable in JavaScript. The project
-was coded originally in TypeScript as nothing more than something to do after using map's several
+was coded originally in TypeScript as nothing more than something to do after using Map's several
 times across many of my projects.
 
 ## Features of Atlas

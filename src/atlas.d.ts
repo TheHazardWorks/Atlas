@@ -1,5 +1,6 @@
 declare class Atlas {
     constructor(options?: {filename?: string, filepath?: string, debug?: boolean });
+    initialize();
     set(key: string, value: any);
     get(key: string): any;
     remove(key: string);

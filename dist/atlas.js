@@ -22,6 +22,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+const fs_1 = __importDefault(require("fs"));
 class AtlasError extends Error {
     constructor(message) {
         super(message);
@@ -35,7 +39,47 @@ class Atlas {
         this.filename = options.filename || 'storage';
         this.filepath = options.filepath || __dirname;
         this.debug = options.debug || false;
-        this.canStore = (typeof window !== undefined) ? false : true;
+        try {
+            this.content = fs_1.default.readFileSync(`${this.filepath}/${this.filename}.atlas`, {
+                encoding: 'utf8'
+            });
+            this.storage = JSON.parse(this.content);
+        }
+        catch (e) {
+            this.content = '';
+            this.storage = new Array();
+        }
+    }
+    /**
+     * Save the Atlas to File
+     */
+    __save() {
+        this.storage = [];
+        if (this.entries().length >= 1) {
+            this.entries().forEach((item) => {
+                this.storage.push(item);
+            });
+        }
+        try {
+            let toSave = JSON.stringify(this.storage);
+            if (toSave !== this.content) {
+                fs_1.default.writeFileSync(`${this.filepath}/${this.filename}.atlas`, toSave);
+            }
+        }
+        catch (e) {
+            let message = (!e.message) ? e : e.message;
+            throw new AtlasError(`Failed to save Atlas with error: "${message}"`);
+        }
+    }
+    /**
+     * Load saved Atlas into the current Atlas
+     */
+    initialize() {
+        if (this.storage.length >= 1) {
+            this.storage.forEach((item) => {
+                this.map.set(item.key, item.value);
+            });
+        }
     }
     /**
      * Set an Item to the Atlas
@@ -44,6 +88,7 @@ class Atlas {
      */
     set(key, value) {
         this.map.set(key, value);
+        this.__save();
     }
     /**
      * Get an item from the Atlas
@@ -108,11 +153,7 @@ class Atlas {
      */
     empty() {
         this.map.clear();
+        this.__save();
     }
 }
-if (typeof window !== undefined) {
-    window.Atlas = Atlas;
-}
-else {
-    module.exports = Atlas;
-}
+module.exports = Atlas;

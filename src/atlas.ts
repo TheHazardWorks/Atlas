@@ -125,8 +125,4 @@ class Atlas {
     }
 }
 
-if(typeof window !== undefined) {
-    window.Atlas = Atlas;
-} else {
-    module.exports = Atlas;
-}
+export = Atlas;

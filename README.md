@@ -18,16 +18,6 @@ times across many of my projects.
 ### Demo/Docs
 Here you will find the various ways that Atlas works.
 
-In the Browser:
-```html
-<script src="atlas.min.js"></script>
-<script type="text/javascript">
-// Atlas will attach itself to the window in a Browser
-// NOTE: In browser it cannot save to a file!
-let atlas = new Atlas();
-</script>
-```
-
 In Node.JS Javascript (CommonJS):
 ```js
 let Atlas = require('./atlas');

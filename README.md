@@ -6,26 +6,26 @@
 
 🗺✏️ An extended version of JavaScript's Map
 
-### Why Atlas?
+## Why Atlas?
 Atlas is an ongoing way to simplify and expand the default Map variable in JavaScript. The project
 was coded originally in TypeScript as nothing more than something to do after using map's several
 times across many of my projects.
 
-### Features of Atlas
-- Iterators replaces with Array Returns
+## Features of Atlas
+- Iterators replaced with Array Returns
 - Ability to Save your Atlas to File
 
-### Demo/Docs
+## Demo/Docs
 Here you will find the various ways that Atlas works.
 
-In Node.JS Javascript (CommonJS):
+##### In Node.JS Javascript (CommonJS):
 ```js
 let Atlas = require('./atlas');
 
 let atlas = new Atlas();
 ```
 
-In Node.JS TypeScript (ES6):
+##### In Node.JS TypeScript (ES6):
 ```ts
 import Atlas from './atlas';
 

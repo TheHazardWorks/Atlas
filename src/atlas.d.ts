@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 declare class Atlas {
-    constructor(options?: {filename?: string, filepath?: string, debug?: boolean });
+    constructor(options?: { filename?: string, filepath?: string, debug?: boolean });
     initialize();
     set(key: string, value: any);
     get(key: string): any;

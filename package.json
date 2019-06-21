@@ -1,0 +1,25 @@
+{
+  "name": "atlas",
+  "version": "0.0.0",
+  "description": "An extended version of JavaScript's Map",
+  "main": "./dist/atlas.node.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YourNetworkNerd/Atlas.git"
+  },
+  "keywords": [
+    "atlas",
+    "map",
+    "javascript",
+    "typescript"
+  ],
+  "author": "YourNetworkNerd",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YourNetworkNerd/Atlas/issues"
+  },
+  "homepage": "https://yournetworknerd.github.io/Atlas/"
+}
